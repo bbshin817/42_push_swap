@@ -1,33 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_isprint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sbaba <sbaba@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/05 12:35:29 by sbaba             #+#    #+#             */
-/*   Updated: 2025/05/05 15:58:19 by sbaba            ###   ########.fr       */
+/*   Created: 2024/04/26 16:08:00 by sbaba             #+#    #+#             */
+/*   Updated: 2024/11/10 20:31:05 by sbaba            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "libft.h"
 
-#include "libft/libft.h"
-#include <stdlib.h>
-
-typedef struct s_node
+int	ft_isprint(int c)
 {
-	int				value;
-	int				index;
-	struct s_node	*prev;
-	struct s_node	*next;
-} t_node;
+	return (32 <= c && c <= 126);
+}
 
-typedef struct s_stack
-{
-	t_node	*top;
-} t_stack;
+// #include <stdio.h>
 
-
-#endif
+// int	main(void)
+// {
+// 	printf("[a], %d\n", ft_isprint('a'));
+// 	printf("[0], %d\n", ft_isprint('0'));
+// 	printf("[!], %d\n", ft_isprint('!'));
+// 	printf("[NULL], %d\n", ft_isprint('\0'));
+// }

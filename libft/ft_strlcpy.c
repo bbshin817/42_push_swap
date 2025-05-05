@@ -1,33 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sbaba <sbaba@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/05 12:35:29 by sbaba             #+#    #+#             */
-/*   Updated: 2025/05/05 15:58:19 by sbaba            ###   ########.fr       */
+/*   Created: 2024/01/21 14:19:33 by sbaba             #+#    #+#             */
+/*   Updated: 2024/11/06 17:52:06 by sbaba            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "libft.h"
 
-#include "libft/libft.h"
-#include <stdlib.h>
-
-typedef struct s_node
+size_t	ft_strlcpy(char *dest, const char *src, size_t size)
 {
-	int				value;
-	int				index;
-	struct s_node	*prev;
-	struct s_node	*next;
-} t_node;
+	size_t	i;
+	size_t	strlen;
 
-typedef struct s_stack
-{
-	t_node	*top;
-} t_stack;
+	i = 0;
+	strlen = 0;
+	while (src[strlen] != '\0')
+		strlen++;
+	if (0 == size)
+		return (strlen);
+	while (src[i] != '\0' && i < size - 1)
+	{
+		dest[i] = src[i];
+		i++;
+	}
+	dest[i] = '\0';
+	return (strlen);
+}
 
-
-#endif
+// int	main(void)
+// {
+// 	return (0);
+// }
