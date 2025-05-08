@@ -1,30 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   append.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sbaba <sbaba@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/05 12:35:21 by sbaba             #+#    #+#             */
-/*   Updated: 2025/05/08 19:17:48 by sbaba            ###   ########.fr       */
+/*   Created: 2025/05/08 18:27:16 by sbaba             #+#    #+#             */
+/*   Updated: 2025/05/08 19:22:00 by sbaba            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int argc, char *argv[])
-{
-	int	i;
-	t_stack	stack_a;
+#include <stdio.h>
 
-	if (argc == 1)
-		echo_error();
+int	append_value(char *values[], t_stack *stack)
+{
+	int		i;
+	int		value;
+	char	**strs;
+	char	**tmp;
+
 	i = 1;
-	while (argv[i])
+	while (values[i])
 	{
-		if (!is_allow_characters(argv[i]))
-			echo_error();
+		strs = ft_split(values[i], ' ');
+		if (!strs)
+			return 0;
+		tmp = strs;
+		while (*strs)
+		{
+			value = ft_atoi(*strs);
+			printf("%u, ", value);
+			strs++;
+		}
+		free(tmp);
 		i++;
 	}
-	append_value(argv, &stack_a);
+	exit(0);
+	ft_printf("%s", stack);
+	return 0;
 }

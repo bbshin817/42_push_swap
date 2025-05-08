@@ -1,30 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sbaba <sbaba@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/05 12:35:21 by sbaba             #+#    #+#             */
-/*   Updated: 2025/05/08 19:17:48 by sbaba            ###   ########.fr       */
+/*   Created: 2025/05/08 18:05:30 by sbaba             #+#    #+#             */
+/*   Updated: 2025/05/08 19:07:41 by sbaba            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int argc, char *argv[])
+void	echo_error(void)
+{
+	ft_printf("Error\n");
+	exit(1);
+}
+
+int	is_allow_characters(char *str)
 {
 	int	i;
-	t_stack	stack_a;
 
-	if (argc == 1)
-		echo_error();
-	i = 1;
-	while (argv[i])
+	i = 0;
+	while (str[i])
 	{
-		if (!is_allow_characters(argv[i]))
-			echo_error();
+		if (!(('0' <= str[i] && str[i] <= '9')
+				|| str[i] == '+' || str[i] == '-' || str[i] == 32))
+			return (0);
 		i++;
 	}
-	append_value(argv, &stack_a);
+	return (1);
 }

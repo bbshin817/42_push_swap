@@ -1,30 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_print_hex_lower.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sbaba <sbaba@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/05 12:35:21 by sbaba             #+#    #+#             */
-/*   Updated: 2025/05/08 19:17:48 by sbaba            ###   ########.fr       */
+/*   Created: 2025/03/14 17:51:44 by sbaba             #+#    #+#             */
+/*   Updated: 2025/03/23 20:04:09 by sbaba            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../ft_printf.h"
 
-int	main(int argc, char *argv[])
+int	ft_print_hex_lower(unsigned int arg)
 {
-	int	i;
-	t_stack	stack_a;
-
-	if (argc == 1)
-		echo_error();
-	i = 1;
-	while (argv[i])
-	{
-		if (!is_allow_characters(argv[i]))
-			echo_error();
-		i++;
-	}
-	append_value(argv, &stack_a);
+	return (ft_putnbr_hex(arg, 0));
 }

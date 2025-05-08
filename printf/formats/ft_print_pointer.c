@@ -1,30 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_print_pointer.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sbaba <sbaba@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/05 12:35:21 by sbaba             #+#    #+#             */
-/*   Updated: 2025/05/08 19:17:48 by sbaba            ###   ########.fr       */
+/*   Created: 2025/03/14 17:52:03 by sbaba             #+#    #+#             */
+/*   Updated: 2025/04/01 17:27:33 by sbaba            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../ft_printf.h"
 
-int	main(int argc, char *argv[])
+int	ft_print_pointer(uintptr_t arg)
 {
-	int	i;
-	t_stack	stack_a;
+	int	len;
+	int	print_len;
 
-	if (argc == 1)
-		echo_error();
-	i = 1;
-	while (argv[i])
-	{
-		if (!is_allow_characters(argv[i]))
-			echo_error();
-		i++;
-	}
-	append_value(argv, &stack_a);
+	len = 0;
+	if (!arg)
+		return (ft_print_string("(nil)"));
+	print_len = ft_print_string("0x");
+	if (print_len < 0)
+		return (-1);
+	len += print_len;
+	print_len = ft_putnbr_hex(arg, 0);
+	if (print_len < 0)
+		return (-1);
+	len += print_len;
+	return (len);
 }

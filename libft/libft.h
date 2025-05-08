@@ -6,7 +6,7 @@
 /*   By: sbaba <sbaba@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 15:25:08 by sbaba             #+#    #+#             */
-/*   Updated: 2025/05/05 16:07:22 by sbaba            ###   ########.fr       */
+/*   Updated: 2025/05/08 18:47:46 by sbaba            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 # define LIBFT_H
 
 # include <stdlib.h>
-# include <limits.h>
 # include <unistd.h>
+# include <limits.h>
 
 int		ft_atoi(const char *str);
 void	ft_bzero(void *s, size_t n);
@@ -28,6 +28,7 @@ char	*ft_substr(char const *src, unsigned int start, size_t len);
 size_t	ft_strlen(const	char *str);
 char	*ft_strchr(const char *s, int c);
 char	*ft_itoa(int n);
+char	**ft_split(const char *s, char c);
 char	*ft_utoa(unsigned int n);
 
 #endif
