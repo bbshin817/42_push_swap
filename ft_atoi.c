@@ -5,19 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: sbaba <sbaba@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/16 18:01:23 by sbaba             #+#    #+#             */
-/*   Updated: 2024/12/09 15:53:43 by sbaba            ###   ########.fr       */
+/*   Created: 2025/05/10 18:49:31 by sbaba             #+#    #+#             */
+/*   Updated: 2025/05/10 19:20:19 by sbaba            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
-/*
-31: the absolute value of long min is one greater than
-	long max, so we add one directly to it.
-*/
-
-static long	consideration_overflow(char *str, int sign)
+long	convert(const char *str, int flag)
 {
 	unsigned long	result;
 	unsigned long	over;
@@ -29,9 +24,9 @@ static long	consideration_overflow(char *str, int sign)
 	while ('0' <= *str && *str <= '9')
 	{
 		digit = *str - '0';
-		if (0 < result && sign == 1 && result > (over - digit) / 10)
+		if (0 < result && flag == 1 && result > (over - digit) / 10)
 			return (LONG_MAX);
-		if (0 < result && sign == -1 && result > (over - digit + 1) / 10)
+		if (0 < result && flag == -1 && result > (over - digit + 1) / 10)
 			return (LONG_MIN);
 		result = result * 10 + digit;
 		str++;
@@ -39,12 +34,12 @@ static long	consideration_overflow(char *str, int sign)
 	return (result);
 }
 
-int	ft_atoi(const char *str)
+long	ft_atoi(const char *str)
 {
-	int		sign;
+	int		flag;
 	long	result;
 
-	sign = 1;
+	flag = 1;
 	result = 0;
 	while (((9 <= *str && *str <= 13) || *str == 32) && *str != '\0')
 		str++;
@@ -52,18 +47,9 @@ int	ft_atoi(const char *str)
 		str++;
 	else if (*str == '-')
 	{
-		sign = -1;
+		flag = -1;
 		str++;
 	}
-	result = (int)consideration_overflow((char *)str, sign);
-	return (result * sign);
+	result = convert(str, flag);
+	return (result * flag);
 }
-
-// #include <stdio.h>
-// #include <stdlib.h>
-
-// int main(int argc, char *argv[])
-// {
-// 	printf("[Input]\n%s\n\n[Result]\nft_atoi: %d\n", argv[1], ft_atoi(argv[1]));
-// 	printf("atoi: %d", atoi(argv[1]));
-// }

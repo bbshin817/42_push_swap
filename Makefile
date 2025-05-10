@@ -1,6 +1,10 @@
 SRCS =	main.c \
-		utils.c \
-		append.c
+		ft_atoi.c \
+		utils/validation.c \
+		utils/append.c \
+		utils/print.c \
+		utils/free.c \
+		utils/count.c
 OBJS	= $(SRCS:.c=.o)
 NAME	= push_swap
 

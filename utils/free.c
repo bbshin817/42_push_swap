@@ -1,38 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   free.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sbaba <sbaba@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/05 12:35:21 by sbaba             #+#    #+#             */
-/*   Updated: 2025/05/10 19:22:16 by sbaba            ###   ########.fr       */
+/*   Created: 2025/05/10 17:20:00 by sbaba             #+#    #+#             */
+/*   Updated: 2025/05/10 19:23:20 by sbaba            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
-int	main(int argc, char *argv[])
+void	free_stack(t_stack *stack)
 {
-	int	i;
-	t_stack	*stack_a;
+	t_node	*node;
+	t_node	*next_node;
 
-	stack_a = malloc(sizeof(t_stack));
-	if (!stack_a || argc == 1)
-		print_error();
-	i = 1;
-	while (argv[i])
+	if (!stack)
+		return ;
+	node = stack->top;
+	while (node)
 	{
-		if (!is_allow_characters(argv[i]))
+		next_node = node->next;
+		free(node);
+		node = next_node;
+		if (node->is_null)
 		{
-			free_stack(stack_a);
-			print_error();
+			free(node);
+			break;
 		}
-		i++;
 	}
-	if (!append_value(argv, stack_a) || is_duplicate(stack_a)) {
-		free_stack(stack_a);
-		print_error();
-	}
-	free_stack(stack_a);
+
+	free(stack);
+}
+
+void	free_splits(char **splitted)
+{
+	int i;
+	
+	i = 0;
+	if (!splitted)
+		return;
+	while (splitted[i])
+		free(splitted[i++]);
+	free(splitted);
 }

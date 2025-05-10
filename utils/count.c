@@ -1,43 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   append.c                                           :+:      :+:    :+:   */
+/*   count.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sbaba <sbaba@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/08 18:27:16 by sbaba             #+#    #+#             */
-/*   Updated: 2025/05/08 19:22:00 by sbaba            ###   ########.fr       */
+/*   Created: 2025/05/10 17:27:21 by sbaba             #+#    #+#             */
+/*   Updated: 2025/05/10 17:30:23 by sbaba            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
-#include <stdio.h>
-
-int	append_value(char *values[], t_stack *stack)
+int	count_stack(t_stack *stack)
 {
-	int		i;
-	int		value;
-	char	**strs;
-	char	**tmp;
+	int		len;
+	t_node	*node;
 
-	i = 1;
-	while (values[i])
+	len = 0;
+	node = stack->top;
+	while (node && !node->is_null)
 	{
-		strs = ft_split(values[i], ' ');
-		if (!strs)
-			return 0;
-		tmp = strs;
-		while (*strs)
-		{
-			value = ft_atoi(*strs);
-			printf("%u, ", value);
-			strs++;
-		}
-		free(tmp);
-		i++;
+		node = node->next;
+		len++;
 	}
-	exit(0);
-	ft_printf("%s", stack);
-	return 0;
+	return (len);
 }
