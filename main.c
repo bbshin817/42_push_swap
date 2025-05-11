@@ -6,7 +6,7 @@
 /*   By: sbaba <sbaba@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/05 12:35:21 by sbaba             #+#    #+#             */
-/*   Updated: 2025/05/11 18:52:21 by sbaba            ###   ########.fr       */
+/*   Updated: 2025/05/11 19:15:27 by sbaba            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,9 @@ int	main(int argc, char *argv[])
 
 	stack_a = malloc(sizeof(t_stack));
 	stack_b = malloc(sizeof(t_stack));
-	if (!stack_a || !stack_a || argc == 1)
+	if (argc == 1)
+		exit(0);
+	if (!stack_a || !stack_a)
 		print_error();
 	if (!is_allow_argv(argv) || !append_value(argv, stack_a)
 		|| is_duplicate(stack_a))
