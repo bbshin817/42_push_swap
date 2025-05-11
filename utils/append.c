@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   append.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sbaba <sbaba@student.42.fr>                +#+  +:+       +#+        */
+/*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/08 18:27:16 by sbaba             #+#    #+#             */
-/*   Updated: 2025/05/10 18:58:45 by sbaba            ###   ########.fr       */
+/*   Updated: 2025/05/11 23:35:14 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ int	append_value(char *values[], t_stack *stack)
 		tmp = strs;
 		while (*strs)
 		{
-			value = ft_atoi(*strs);
+			value = ex_atoi(*strs);
 			if (INT_MAX < value || value < INT_MIN
 				|| !append_to_stack(stack, value))
 				return (0);

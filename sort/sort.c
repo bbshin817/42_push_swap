@@ -3,19 +3,40 @@
 /*                                                        :::      ::::::::   */
 /*   sort.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sbaba <sbaba@student.42.fr>                +#+  +:+       +#+        */
+/*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 18:45:54 by sbaba             #+#    #+#             */
-/*   Updated: 2025/05/11 19:03:32 by sbaba            ###   ########.fr       */
+/*   Updated: 2025/05/12 01:31:20 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	sort_2_values(t_stack *stack_a)
+void	sort_3_values(t_stack *stack)
 {
-	sa(stack_a);
-	print_stack(stack_a);
+	long	max_value;
+
+	max_value = get_max_value(stack);
+	if (max_value == stack->top->value)
+		ra(stack);
+	else if (max_value == stack->top->next->value)
+		rra(stack);
+	if (stack->top->value > stack->top->next->value)
+		sa(stack);
+	return ;
+}
+
+void	sort_4_values(t_stack *stack_a, t_stack *stack_b)
+{
+	long	min_value;
+
+	min_value = get_min_value(stack_a);
+	while (stack_a->top->value != min_value)
+		ra(stack_a);
+	pb(stack_a, stack_b);
+	sort_3_values(stack_a);
+	pa(stack_a, stack_b);
+	return ;
 }
 
 void	sort(t_stack *stack_a, t_stack *stack_b)
@@ -26,7 +47,12 @@ void	sort(t_stack *stack_a, t_stack *stack_b)
 	if (is_sorted(stack_a) || stack_size < 2)
 		return ;
 	if (stack_size == 2)
-		sort_2_values(stack_a);
-	count_stack(stack_b);
+		sa(stack_a);
+	else if (stack_size == 3)
+		sort_3_values(stack_a);
+	else if (stack_size == 4)
+		sort_4_values(stack_a, stack_b);
+	else
+		sort_over_5(stack_a, stack_b);
 	return ;
 }

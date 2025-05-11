@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   print.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sbaba <sbaba@student.42.fr>                +#+  +:+       +#+        */
+/*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/10 15:48:45 by sbaba             #+#    #+#             */
-/*   Updated: 2025/05/10 17:58:28 by sbaba            ###   ########.fr       */
+/*   Updated: 2025/05/12 01:16:45 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,12 +38,9 @@ void	print_stack(t_stack *stack)
 	while (node)
 	{
 		print_node(node);
-		node = node->next;
 		if (node->is_null)
-		{
-			print_node(node);
 			break ;
-		}
+		node = node->next;
 	}
 }
 

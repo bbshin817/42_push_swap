@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ex_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sbaba <sbaba@student.42.fr>                +#+  +:+       +#+        */
+/*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/10 18:49:31 by sbaba             #+#    #+#             */
-/*   Updated: 2025/05/11 16:18:12 by sbaba            ###   ########.fr       */
+/*   Updated: 2025/05/11 23:36:15 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 long	convert(const char *str, int flag)
 {
@@ -34,7 +34,7 @@ long	convert(const char *str, int flag)
 	return (result);
 }
 
-long	ft_atoi(const char *str)
+long	ex_atoi(const char *str)
 {
 	int		flag;
 	long	result;

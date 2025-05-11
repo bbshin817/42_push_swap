@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   count.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sbaba <sbaba@student.42.fr>                +#+  +:+       +#+        */
+/*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/10 17:27:21 by sbaba             #+#    #+#             */
-/*   Updated: 2025/05/11 16:16:02 by sbaba            ###   ########.fr       */
+/*   Updated: 2025/05/12 00:34:04 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,4 +25,38 @@ int	count_stack(t_stack *stack)
 		len++;
 	}
 	return (len);
+}
+
+long	get_max_value(t_stack *stack)
+{
+	t_node	*node;
+	long	value;
+
+	node = stack->top;
+	value = node->value;
+	node = node->next;
+	while (!node->is_null)
+	{
+		if (value < node->value)
+			value = node->value;
+		node = node->next;
+	}
+	return (value);
+}
+
+long	get_min_value(t_stack *stack)
+{
+	t_node	*node;
+	long	value;
+
+	node = stack->top;
+	value = node->value;
+	node = node->next;
+	while (!node->is_null)
+	{
+		if (value > node->value)
+			value = node->value;
+		node = node->next;
+	}
+	return (value);
 }
