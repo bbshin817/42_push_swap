@@ -1,5 +1,9 @@
 SRCS =	main.c \
 		ft_atoi.c \
+		sort/sort.c \
+		operation/push.c \
+		operation/rotate.c \
+		operation/swap.c \
 		utils/validation.c \
 		utils/append.c \
 		utils/print.c \

@@ -6,7 +6,7 @@
 /*   By: sbaba <sbaba@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/08 18:05:30 by sbaba             #+#    #+#             */
-/*   Updated: 2025/05/10 19:20:13 by sbaba            ###   ########.fr       */
+/*   Updated: 2025/05/11 18:42:22 by sbaba            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,20 @@ int	is_allow_characters(char *str)
 	return (1);
 }
 
+int	is_allow_argv(char *argv[])
+{
+	int	i;
+
+	i = 1;
+	while (argv[i])
+	{
+		if (!is_allow_characters(argv[i]))
+			return (0);
+		i++;
+	}
+	return (1);
+}
+
 int	is_duplicate(t_stack *stack)
 {
 	t_node	*current;
@@ -57,4 +71,23 @@ int	is_duplicate(t_stack *stack)
 		current = current->next;
 	}
 	return (0);
+}
+
+int	is_sorted(t_stack *stack)
+{
+	t_node	*node;
+
+	if (!stack || !stack->top || stack->top->is_null)
+		return (1);
+
+	node = stack->top;
+	while (!node->is_null)
+	{
+		if (node->next->is_null)
+			break ;
+		if (node->value > node->next->value)
+			return (0);
+		node = node->next;
+	}
+	return (1);
 }

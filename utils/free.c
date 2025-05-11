@@ -6,7 +6,7 @@
 /*   By: sbaba <sbaba@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/10 17:20:00 by sbaba             #+#    #+#             */
-/*   Updated: 2025/05/10 19:23:20 by sbaba            ###   ########.fr       */
+/*   Updated: 2025/05/11 18:51:53 by sbaba            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,20 +28,25 @@ void	free_stack(t_stack *stack)
 		if (node->is_null)
 		{
 			free(node);
-			break;
+			break ;
 		}
 	}
-
 	free(stack);
+}
+
+void	free_stacks(t_stack *stack_a, t_stack *stack_b)
+{
+	free_stack(stack_a);
+	free_stack(stack_b);
 }
 
 void	free_splits(char **splitted)
 {
-	int i;
-	
+	int	i;
+
 	i = 0;
 	if (!splitted)
-		return;
+		return ;
 	while (splitted[i])
 		free(splitted[i++]);
 	free(splitted);

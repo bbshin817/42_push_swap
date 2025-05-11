@@ -6,7 +6,7 @@
 /*   By: sbaba <sbaba@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/05 12:35:21 by sbaba             #+#    #+#             */
-/*   Updated: 2025/05/10 19:22:16 by sbaba            ###   ########.fr       */
+/*   Updated: 2025/05/11 18:52:21 by sbaba            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,25 +14,19 @@
 
 int	main(int argc, char *argv[])
 {
-	int	i;
 	t_stack	*stack_a;
+	t_stack	*stack_b;
 
 	stack_a = malloc(sizeof(t_stack));
-	if (!stack_a || argc == 1)
+	stack_b = malloc(sizeof(t_stack));
+	if (!stack_a || !stack_a || argc == 1)
 		print_error();
-	i = 1;
-	while (argv[i])
+	if (!is_allow_argv(argv) || !append_value(argv, stack_a)
+		|| is_duplicate(stack_a))
 	{
-		if (!is_allow_characters(argv[i]))
-		{
-			free_stack(stack_a);
-			print_error();
-		}
-		i++;
-	}
-	if (!append_value(argv, stack_a) || is_duplicate(stack_a)) {
-		free_stack(stack_a);
+		free_stacks(stack_a, stack_b);
 		print_error();
 	}
-	free_stack(stack_a);
+	sort(stack_a, stack_b);
+	free_stacks(stack_a, stack_b);
 }

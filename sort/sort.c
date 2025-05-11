@@ -1,28 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   count.c                                            :+:      :+:    :+:   */
+/*   sort.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sbaba <sbaba@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/10 17:27:21 by sbaba             #+#    #+#             */
-/*   Updated: 2025/05/11 16:16:02 by sbaba            ###   ########.fr       */
+/*   Created: 2025/05/11 18:45:54 by sbaba             #+#    #+#             */
+/*   Updated: 2025/05/11 19:03:32 by sbaba            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-int	count_stack(t_stack *stack)
+void	sort_2_values(t_stack *stack_a)
 {
-	int		len;
-	t_node	*node;
+	sa(stack_a);
+	print_stack(stack_a);
+}
 
-	len = 0;
-	node = stack->top;
-	while (node && !node->is_null)
-	{
-		node = node->next;
-		len++;
-	}
-	return (len);
+void	sort(t_stack *stack_a, t_stack *stack_b)
+{
+	int	stack_size;
+
+	stack_size = count_stack(stack_a);
+	if (is_sorted(stack_a) || stack_size < 2)
+		return ;
+	if (stack_size == 2)
+		sort_2_values(stack_a);
+	count_stack(stack_b);
+	return ;
 }
