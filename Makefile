@@ -3,12 +3,14 @@ SRCS =	main.c \
 		sort/sort_over_five.c \
 		operation/push.c \
 		operation/rotate.c \
+		operation/reverse_rotate.c \
 		operation/swap.c \
 		utils/validation.c \
 		utils/append.c \
 		utils/print.c \
 		utils/free.c \
 		utils/count.c \
+		utils/command.c \
 		utils/ex_atoi.c
 OBJS	= $(SRCS:.c=.o)
 NAME	= push_swap

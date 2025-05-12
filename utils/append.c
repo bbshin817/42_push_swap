@@ -3,16 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   append.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: sbaba <sbaba@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/08 18:27:16 by sbaba             #+#    #+#             */
-/*   Updated: 2025/05/11 23:35:14 by user             ###   ########.fr       */
+/*   Updated: 2025/05/12 15:59:53 by sbaba            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
-
-#include <stdio.h>
 
 t_node	*create_node(t_node *prev, int value, int is_null)
 {
@@ -24,6 +22,7 @@ t_node	*create_node(t_node *prev, int value, int is_null)
 	node->value = value;
 	node->prev = prev;
 	node->next = NULL;
+	node->command = command_init();
 	node->is_null = is_null;
 	return (node);
 }

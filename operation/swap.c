@@ -6,7 +6,7 @@
 /*   By: sbaba <sbaba@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 16:11:20 by sbaba             #+#    #+#             */
-/*   Updated: 2025/05/11 18:59:11 by sbaba            ###   ########.fr       */
+/*   Updated: 2025/05/12 16:22:01 by sbaba            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,5 +42,13 @@ void	sb(t_stack *stack_b)
 {
 	swap(stack_b);
 	ft_printf("sb\n");
+	return ;
+}
+
+void	ss(t_stack *stack_a, t_stack *stack_b)
+{
+	swap(stack_a);
+	swap(stack_b);
+	ft_printf("ss\n");
 	return ;
 }
