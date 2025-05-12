@@ -6,7 +6,7 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/12 01:28:30 by user              #+#    #+#             */
-/*   Updated: 2025/05/13 01:20:30 by user             ###   ########.fr       */
+/*   Updated: 2025/05/13 02:33:07 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,29 +15,26 @@
 int	get_near_less_value(t_stack *stack, int value)
 {
 	t_node	*node;
-	int		diff;
+	long	diff;
 	int		v;
-	int		found;
-	int		current_diff;
+	long	current_diff;
 
-	diff = INT_MAX;
+	diff = LONG_MAX;
 	v = 0;
-	found = 0;
 	node = stack->top;
 	while (!node->is_null)
 	{
-		current_diff = value - node->value;
+		current_diff = (long)value - (long)node->value;
 		if (node->value < value && current_diff < diff)
 		{
 			diff = current_diff;
 			v = node->value;
-			found = 1;
 		}
 		node = node->next;
 	}
-	if (found)
-		return (v);
-	return (value);
+	if (diff == LONG_MAX)
+		return (value);
+	return (v);
 }
 
 int	get_value_position(t_stack *stack, int value)
@@ -74,7 +71,7 @@ void	simulate_commands_count(t_stack *stack_a, t_stack *stack_b)
 	{
 		node_a->command.ra = ra;
 		if (node_a->value > b_max_value || node_a->value < b_min_value)
-			node_a->command.rb = get_value_position(stack_b, b_max_value);
+			node_a->command.rb += get_value_position(stack_b, b_max_value);
 		else
 		{
 			near = get_near_less_value(stack_b, node_a->value);
@@ -133,5 +130,5 @@ void	sort_over_5(t_stack *stack_a, t_stack *stack_b)
 	}
 	a_min_value = get_min_value(stack_a);
 	while (a_min_value != stack_a->top->value)
-		rra(stack_a);
+		ra(stack_a);
 }

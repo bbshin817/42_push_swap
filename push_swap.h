@@ -6,7 +6,7 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/05 12:35:29 by sbaba             #+#    #+#             */
-/*   Updated: 2025/05/13 01:17:27 by user             ###   ########.fr       */
+/*   Updated: 2025/05/13 02:38:57 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,8 +56,8 @@ void		free_stack(t_stack *stack);
 void		free_stacks(t_stack *stack_a, t_stack *stack_b);
 void		free_splits(char **splitted);
 int			count_stack(t_stack *stack);
-long		get_max_value(t_stack *stack);
-long		get_min_value(t_stack *stack);
+int			get_max_value(t_stack *stack);
+int			get_min_value(t_stack *stack);
 long		ex_atoi(const char *str);
 void		reset_command(t_stack *stack);
 int			get_commands_count(t_command command);

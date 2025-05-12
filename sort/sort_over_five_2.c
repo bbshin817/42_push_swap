@@ -6,7 +6,7 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/13 00:43:06 by user              #+#    #+#             */
-/*   Updated: 2025/05/13 01:19:29 by user             ###   ########.fr       */
+/*   Updated: 2025/05/13 02:32:45 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,20 +16,22 @@ int	get_near_over_value(t_stack *stack, int value)
 {
 	t_node	*node;
 	int		v;
-	int		diff;
+	long	diff;
+	long	current_diff;
 
-	diff = INT_MAX;
+	diff = LONG_MAX;
 	node = stack->top;
 	while (!node->is_null)
 	{
-		if (node->value > value && node->value - value < diff)
+		current_diff = (long)node->value - (long)value;
+		if (node->value > value && current_diff < diff)
 		{
-			diff = node->value - value;
+			diff = current_diff;
 			v = node->value;
 		}
 		node = node->next;
 	}
-	if (diff == INT_MAX)
+	if (diff == LONG_MAX)
 		return (value);
 	return (v);
 }
@@ -37,8 +39,8 @@ int	get_near_over_value(t_stack *stack, int value)
 void	simulate_commands_count_back(t_stack *stack_a, t_stack *stack_b)
 {
 	t_node	*node_b;
-	long	a_max_value;
-	long	a_min_value;
+	int		a_max_value;
+	int		a_min_value;
 	int		rb;
 	int		near;
 
@@ -55,7 +57,7 @@ void	simulate_commands_count_back(t_stack *stack_a, t_stack *stack_b)
 		else
 		{
 			near = get_near_over_value(stack_a, node_b->value);
-			node_b->command.ra += get_value_position(stack_a, near);
+			node_b->command.ra = get_value_position(stack_a, near);
 		}
 		rb++;
 		node_b = node_b->next;

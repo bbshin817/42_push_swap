@@ -6,7 +6,7 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/08 18:05:30 by sbaba             #+#    #+#             */
-/*   Updated: 2025/05/13 01:23:31 by user             ###   ########.fr       */
+/*   Updated: 2025/05/13 02:29:24 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ int	is_sorted(t_stack *stack)
 	{
 		if (node->next->is_null)
 			break ;
-		if (node->value > node->next->value)
+		if ((long)node->value > (long)node->next->value)
 			return (0);
 		node = node->next;
 	}

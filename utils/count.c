@@ -6,7 +6,7 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/10 17:27:21 by sbaba             #+#    #+#             */
-/*   Updated: 2025/05/13 01:23:35 by user             ###   ########.fr       */
+/*   Updated: 2025/05/13 02:27:17 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	count_stack(t_stack *stack)
 	return (len);
 }
 
-long	get_max_value(t_stack *stack)
+int	get_max_value(t_stack *stack)
 {
 	t_node	*node;
 	long	value;
@@ -44,10 +44,10 @@ long	get_max_value(t_stack *stack)
 	return (value);
 }
 
-long	get_min_value(t_stack *stack)
+int	get_min_value(t_stack *stack)
 {
 	t_node	*node;
-	long	value;
+	int		value;
 
 	node = stack->top;
 	value = node->value;
