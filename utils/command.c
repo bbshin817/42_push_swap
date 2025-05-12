@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   command.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sbaba <sbaba@student.42.fr>                +#+  +:+       +#+        */
+/*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/12 15:54:57 by sbaba             #+#    #+#             */
-/*   Updated: 2025/05/12 16:41:52 by sbaba            ###   ########.fr       */
+/*   Updated: 2025/05/13 01:23:44 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	reset_command(t_stack *stack)
 int	get_commands_count(t_command command)
 {
 	int	i;
-	
+
 	i = 0;
 	i += command.all;
 	i += command.ra;

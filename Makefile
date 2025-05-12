@@ -1,6 +1,7 @@
 SRCS =	main.c \
 		sort/sort.c \
 		sort/sort_over_five.c \
+		sort/sort_over_five_2.c \
 		operation/push.c \
 		operation/rotate.c \
 		operation/reverse_rotate.c \

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sbaba <sbaba@student.42.fr>                +#+  +:+       +#+        */
+/*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/05 12:35:29 by sbaba             #+#    #+#             */
-/*   Updated: 2025/05/12 16:28:20 by sbaba            ###   ########.fr       */
+/*   Updated: 2025/05/13 01:17:27 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include "printf/ft_printf.h"
 # include <stdlib.h>
 
-typedef	struct s_command
+typedef struct s_command
 {
 	int	all;
 	int	ra;
@@ -42,7 +42,6 @@ typedef struct s_stack
 	t_node	*top;
 }	t_stack;
 
-
 void		print_error(void);
 int			is_allow_characters(char *str);
 int			is_allow_argv(char *argv[]);
@@ -63,6 +62,8 @@ long		ex_atoi(const char *str);
 void		reset_command(t_stack *stack);
 int			get_commands_count(t_command command);
 void		do_command(t_command command, t_stack *stack_a, t_stack *stack_b);
+int			get_value_position(t_stack *stack, int value);
+void		simulate_commands_count_back(t_stack *stack_a, t_stack *stack_b);
 void		sort_3_values(t_stack *stack);
 void		sa(t_stack *stack_a);
 void		sb(t_stack *stack_b);

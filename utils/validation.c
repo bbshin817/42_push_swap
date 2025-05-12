@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   validation.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sbaba <sbaba@student.42.fr>                +#+  +:+       +#+        */
+/*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/08 18:05:30 by sbaba             #+#    #+#             */
-/*   Updated: 2025/05/11 18:42:22 by sbaba            ###   ########.fr       */
+/*   Updated: 2025/05/13 01:23:31 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,6 @@ int	is_sorted(t_stack *stack)
 
 	if (!stack || !stack->top || stack->top->is_null)
 		return (1);
-
 	node = stack->top;
 	while (!node->is_null)
 	{

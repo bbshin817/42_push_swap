@@ -3,22 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sbaba <sbaba@student.42.fr>                +#+  +:+       +#+        */
+/*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 16:13:33 by sbaba             #+#    #+#             */
-/*   Updated: 2025/05/12 16:21:07 by sbaba            ###   ########.fr       */
+/*   Updated: 2025/05/13 01:21:08 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void push(t_stack *src, t_stack *dest)
+void	push(t_stack *src, t_stack *dest)
 {
 	t_node	*first;
 	t_node	*last;
 
 	if (!src || !src->top || src->top->is_null)
-		return;
+		return ;
 	first = src->top;
 	first->prev->next = first->next;
 	first->next->prev = first->prev;
@@ -32,16 +32,16 @@ void push(t_stack *src, t_stack *dest)
 	return ;
 }
 
-void pa(t_stack *stack_a, t_stack *stack_b)
+void	pa(t_stack *stack_a, t_stack *stack_b)
 {
 	push(stack_b, stack_a);
 	ft_printf("pa\n");
-	return;
+	return ;
 }
 
-void pb(t_stack *stack_a, t_stack *stack_b)
+void	pb(t_stack *stack_a, t_stack *stack_b)
 {
 	push(stack_a, stack_b);
 	ft_printf("pb\n");
-	return;
+	return ;
 }
