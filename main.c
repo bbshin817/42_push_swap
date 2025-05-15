@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sbaba <sbaba@student.42.fr>                +#+  +:+       +#+        */
+/*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/05 12:35:21 by sbaba             #+#    #+#             */
-/*   Updated: 2025/05/12 15:03:31 by sbaba            ###   ########.fr       */
+/*   Updated: 2025/05/16 01:07:31 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,13 +34,14 @@ int	main(int argc, char *argv[])
 
 	if (argc == 1)
 		exit(0);
+	if (!is_allow_argv(argv))
+		print_error();
 	stack_a = malloc(sizeof(t_stack));
 	stack_b = malloc(sizeof(t_stack));
 	if (!stack_a || !stack_b)
 		print_error();
 	stack_init(stack_a, stack_b);
-	if (!is_allow_argv(argv) || !append_value(argv, stack_a)
-		|| is_duplicate(stack_a))
+	if (!append_value(argv, stack_a) || is_duplicate(stack_a))
 	{
 		free_stacks(stack_a, stack_b);
 		print_error();

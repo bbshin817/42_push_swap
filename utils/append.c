@@ -6,7 +6,7 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/08 18:27:16 by sbaba             #+#    #+#             */
-/*   Updated: 2025/05/13 02:25:34 by user             ###   ########.fr       */
+/*   Updated: 2025/05/16 01:17:10 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,10 +67,23 @@ int	append_to_stack(t_stack *stack, int value)
 	return (1);
 }
 
+int	str2int(char *strs, t_stack *stack, char **tmp)
+{
+	long	value;
+
+	value = ex_atoi(strs);
+	if (INT_MAX < value || value < INT_MIN
+		|| !append_to_stack(stack, value))
+	{
+		free_splits(tmp);
+		return (0);
+	}
+	return (1);
+}
+
 int	append_value(char *values[], t_stack *stack)
 {
 	int		i;
-	long	value;
 	char	**strs;
 	char	**tmp;
 
@@ -83,9 +96,7 @@ int	append_value(char *values[], t_stack *stack)
 		tmp = strs;
 		while (*strs)
 		{
-			value = ex_atoi(*strs);
-			if (INT_MAX < value || value < INT_MIN
-				|| !append_to_stack(stack, value))
+			if (!str2int(*strs, stack, tmp))
 				return (0);
 			strs++;
 		}

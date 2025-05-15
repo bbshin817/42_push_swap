@@ -6,7 +6,7 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/10 17:20:00 by sbaba             #+#    #+#             */
-/*   Updated: 2025/05/13 01:23:17 by user             ###   ########.fr       */
+/*   Updated: 2025/05/16 00:54:05 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,15 +26,18 @@ void	free_stack(t_stack *stack)
 		free(node);
 		node = next_node;
 	}
-	free(node);
+	if (node)
+		free(node);
 	free(stack);
 	return ;
 }
 
 void	free_stacks(t_stack *stack_a, t_stack *stack_b)
 {
-	free_stack(stack_a);
-	free_stack(stack_b);
+	if (stack_a)
+		free_stack(stack_a);
+	if (stack_b)
+		free_stack(stack_b);
 }
 
 void	free_splits(char **splitted)
