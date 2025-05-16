@@ -6,7 +6,7 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/10 17:20:00 by sbaba             #+#    #+#             */
-/*   Updated: 2025/05/16 00:54:05 by user             ###   ########.fr       */
+/*   Updated: 2025/05/16 18:26:05 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,12 @@ void	free_stack(t_stack *stack)
 	t_node	*node;
 	t_node	*next_node;
 
-	if (!stack || !stack->top)
+	if (!stack)
 		return ;
 	node = stack->top;
+	free(stack);
+	if (!node)
+		return ;
 	while (!node->is_null)
 	{
 		next_node = node->next;
@@ -28,7 +31,6 @@ void	free_stack(t_stack *stack)
 	}
 	if (node)
 		free(node);
-	free(stack);
 	return ;
 }
 
@@ -48,7 +50,10 @@ void	free_splits(char **splitted)
 	if (!splitted)
 		return ;
 	while (splitted[i])
-		free(splitted[i++]);
+	{
+		free(splitted[i]);
+		i++;
+	}
 	free(splitted);
 	return ;
 }
