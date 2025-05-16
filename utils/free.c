@@ -6,7 +6,7 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/10 17:20:00 by sbaba             #+#    #+#             */
-/*   Updated: 2025/05/16 18:27:03 by user             ###   ########.fr       */
+/*   Updated: 2025/05/16 21:49:52 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	free_stack(t_stack *stack)
 	free(stack);
 	if (!node)
 		return ;
-	while (!node->is_null)
+	while (node && !node->is_null)
 	{
 		next_node = node->next;
 		free(node);
