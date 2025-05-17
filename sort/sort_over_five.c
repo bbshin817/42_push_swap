@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_over_five.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sbaba <sbaba@student.42.fr>                +#+  +:+       +#+        */
+/*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/12 01:28:30 by user              #+#    #+#             */
-/*   Updated: 2025/05/17 19:05:44 by sbaba            ###   ########.fr       */
+/*   Updated: 2025/05/18 03:39:30 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,15 +35,20 @@ void	simulate_commands_count(t_stack *stack_a, t_stack *stack_b)
 	int		ra;
 	int		b_max_value;
 	int		b_min_value;
+	int		size;
 
 	b_max_value = get_max_value(stack_b);
 	b_min_value = get_min_value(stack_b);
 	node_a = stack_a->top;
 	ra = 0;
 	reset_command(stack_a);
+	size = count_stack(stack_a);
 	while (!node_a->is_null)
 	{
-		node_a->command.ra = ra;
+		if (ra < size / 2)
+			node_a->command.ra = ra;
+		else
+			node_a->command.rra = (size - ra);
 		simulate_pos_a2b(stack_b, node_a, b_max_value, b_min_value);
 		ra++;
 		node_a = node_a->next;
