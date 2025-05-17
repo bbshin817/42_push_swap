@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: sbaba <sbaba@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/05 12:35:29 by sbaba             #+#    #+#             */
-/*   Updated: 2025/05/13 02:38:57 by user             ###   ########.fr       */
+/*   Updated: 2025/05/17 19:05:50 by sbaba            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,7 @@ int			get_commands_count(t_command command);
 void		do_command(t_command command, t_stack *stack_a, t_stack *stack_b);
 int			get_value_position(t_stack *stack, int value);
 void		simulate_commands_count_back(t_stack *stack_a, t_stack *stack_b);
+void		simulate_pos_a2b(t_stack *stack_b, t_node *node, int max, int min);
 void		sort_3_values(t_stack *stack);
 void		sa(t_stack *stack_a);
 void		sb(t_stack *stack_b);
