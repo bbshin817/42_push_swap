@@ -6,7 +6,7 @@
 /*   By: sbaba <sbaba@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/08 18:05:30 by sbaba             #+#    #+#             */
-/*   Updated: 2025/05/20 18:17:22 by sbaba            ###   ########.fr       */
+/*   Updated: 2025/05/20 18:53:21 by sbaba            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	check(char s, int *was_number, int *was_symbol)
 int	is_allow_characters(char *str)
 {
 	int	i;
-	int was_number;
+	int	was_number;
 	int	was_symbol;
 
 	i = 0;
