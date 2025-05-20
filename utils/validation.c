@@ -3,34 +3,45 @@
 /*                                                        :::      ::::::::   */
 /*   validation.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: sbaba <sbaba@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/08 18:05:30 by sbaba             #+#    #+#             */
-/*   Updated: 2025/05/13 02:29:24 by user             ###   ########.fr       */
+/*   Updated: 2025/05/20 18:17:22 by sbaba            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
+int	check(char s, int *was_number, int *was_symbol)
+{
+	if (!*was_symbol && !*was_number && (s == '+' || s == '-'))
+		*was_symbol = 1;
+	else if ('0' <= s && s <= '9')
+		*was_number = 1;
+	else if (s == 32)
+	{
+		if (!*was_number)
+			return (0);
+		*was_symbol = 0;
+		*was_number = 0;
+	}
+	else
+		return (0);
+	return (1);
+}
+
 int	is_allow_characters(char *str)
 {
 	int	i;
-	int	was_number;
+	int was_number;
+	int	was_symbol;
 
 	i = 0;
 	was_number = 0;
+	was_symbol = 0;
 	while (str[i])
 	{
-		if ('0' <= str[i] && str[i] <= '9')
-			was_number = 1;
-		else if (str[i] == '+' || str[i] == '-')
-			was_number = 0;
-		else if (str[i] == 32)
-		{
-			if (!was_number)
-				return (0);
-		}
-		else
+		if (!check(str[i], &was_number, &was_symbol))
 			return (0);
 		i++;
 	}

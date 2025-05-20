@@ -6,7 +6,7 @@
 /*   By: sbaba <sbaba@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 03:09:25 by user              #+#    #+#             */
-/*   Updated: 2025/05/08 18:47:39 by sbaba            ###   ########.fr       */
+/*   Updated: 2025/05/20 18:42:57 by sbaba            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ static int	count_words(const char *str, char delimiter)
 
 	count = 0;
 	in_word = 0;
+	if (*str == '\0')
+		return (0);
 	while (*str)
 	{
 		if (*str != delimiter && in_word == 0)
@@ -65,25 +67,28 @@ static int	process_words(const char **s, char c, char **result)
 		else
 			(*s)++;
 	}
-	return (i);
+	return (-1);
 }
 
 char	**ft_split(const char *s, char c)
 {
 	int		word_count;
+	int		process_word_count;
 	char	**result;
 
 	if (!s)
 		return (NULL);
 	word_count = count_words(s, c);
+	if (0 == word_count)
+		return (NULL);
 	allocate_result(&result, word_count);
 	if (!result)
 		return (NULL);
-	word_count = process_words(&s, c, result);
-	if (word_count < 0)
+	process_word_count = process_words(&s, c, result);
+	if (0 < process_word_count)
 	{
-		while (word_count > 0)
-			free(result[--word_count]);
+		while (process_word_count > 0)
+			free(result[--process_word_count]);
 		free(result);
 		return (NULL);
 	}
