@@ -6,15 +6,15 @@
 /*   By: sbaba <sbaba@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/05 12:35:29 by sbaba             #+#    #+#             */
-/*   Updated: 2025/05/17 19:05:50 by sbaba            ###   ########.fr       */
+/*   Updated: 2025/07/09 16:31:29 by sbaba            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include "libft/libft.h"
-# include "printf/ft_printf.h"
+# include "../../libft/libft.h"
+# include "../../printf/ft_printf.h"
 # include <stdlib.h>
 
 typedef struct s_command

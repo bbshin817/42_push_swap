@@ -1,0 +1,10 @@
+{
+	"files.associations": {
+		"*.embeddedhtml": "html",
+		"checker.h": "c",
+		"libft.h": "c",
+		"get_next_line.h": "c",
+		"ft_printf.h": "c",
+		"stdlib.h": "c"
+	}
+}
