@@ -9,6 +9,7 @@ SRCS =	ft_bzero.c \
 		ft_strlcpy.c \
 		ft_strlen.c \
 		ft_substr.c \
+		ft_strncmp.c \
 		ft_utoa.c
 OBJS	= $(SRCS:.c=.o)
 NAME	= libft.a

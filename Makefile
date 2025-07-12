@@ -22,6 +22,11 @@ BONUS_SRCS	=	src/checker/main.c \
 				src/checker/ex_atoi.c \
 				src/checker/free.c \
 				src/checker/validation.c \
+				src/checker/sort.c \
+				src/checker/operation/push.c \
+				src/checker/operation/rotate.c \
+				src/checker/operation/reverse_rotate.c \
+				src/checker/operation/swap.c \
 				get_next_line/get_next_line_utils.c \
 				get_next_line/get_next_line.c
 

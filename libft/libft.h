@@ -6,7 +6,7 @@
 /*   By: sbaba <sbaba@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 15:25:08 by sbaba             #+#    #+#             */
-/*   Updated: 2025/05/10 18:44:09 by sbaba            ###   ########.fr       */
+/*   Updated: 2025/07/12 18:42:23 by sbaba            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,6 @@ char	*ft_strchr(const char *s, int c);
 char	*ft_itoa(int n);
 char	**ft_split(const char *s, char c);
 char	*ft_utoa(unsigned int n);
+int		ft_strncmp(const char *s1, const char *s2, size_t n);
 
 #endif
