@@ -20,6 +20,8 @@ BONUS_SRCS	=	src/checker/main.c \
 				src/checker/node.c \
 				src/checker/command.c \
 				src/checker/ex_atoi.c \
+				src/checker/free.c \
+				src/checker/validation.c \
 				get_next_line/get_next_line_utils.c \
 				get_next_line/get_next_line.c
 
