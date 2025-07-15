@@ -17,7 +17,9 @@ SRCS =			src/push_swap/main.c \
 BONUS_SRCS	=	src/checker/main.c \
 				src/checker/errors.c \
 				src/checker/stack.c \
+				src/checker/stack2.c \
 				src/checker/node.c \
+				src/checker/print.c \
 				src/checker/command.c \
 				src/checker/ex_atoi.c \
 				src/checker/free.c \
@@ -44,7 +46,7 @@ PRINTF_A = $(PRINTF_DIR)/libftprintf.a
 
 CC		= cc
 RM		= rm -f
-CFLAGS	= -Wall -Wextra -Werror
+CFLAGS	= -g -Wall -Wextra -Werror
 
 %.o:%.c
 	$(CC) $(CFLAGS) -c $< -o $@

@@ -6,7 +6,7 @@
 /*   By: sbaba <sbaba@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/08 18:05:30 by sbaba             #+#    #+#             */
-/*   Updated: 2025/07/12 19:17:44 by sbaba            ###   ########.fr       */
+/*   Updated: 2025/07/15 17:19:50 by sbaba            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,18 +24,18 @@ int	sort_operate(char *operation, t_stack *a, t_stack *b)
 		pa(a, b);
 	else if (ft_strncmp(operation, "pb", 2) == 0)
 		pb(a, b);
+	else if (ft_strncmp(operation, "rra", 3) == 0)
+		rra(a);
+	else if (ft_strncmp(operation, "rrb", 3) == 0)
+		rrb(b);
+	else if (ft_strncmp(operation, "rrr", 3) == 0)
+		rrr(a, b);
 	else if (ft_strncmp(operation, "ra", 2) == 0)
 		ra(a);
 	else if (ft_strncmp(operation, "rb", 2) == 0)
 		rb(b);
 	else if (ft_strncmp(operation, "rr", 2) == 0)
 		rr(a, b);
-	else if (ft_strncmp(operation, "rra", 2) == 0)
-		rra(a);
-	else if (ft_strncmp(operation, "rrb", 2) == 0)
-		rrb(b);
-	else if (ft_strncmp(operation, "rrr", 2) == 0)
-		rrr(a, b);
 	else
 		return (-1);
 	return (0);
@@ -43,16 +43,21 @@ int	sort_operate(char *operation, t_stack *a, t_stack *b)
 
 int	sort(t_stack *a, t_stack *b)
 {
-	char *line;
+	int		result;
+	char	*line;
 
-	(void)a;
-	(void)b;
 	line = get_next_line(0);
 	while (line)
 	{
-		ft_printf("Operation: %s\n", line);
+		result = sort_operate(line, a, b);
 		free(line);
+		if (result == -1)
+		{
+			get_next_line(-1);
+			return (-1);
+		}
 		line = get_next_line(0);
 	}
+	free(line);
 	return (0);
 }

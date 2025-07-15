@@ -6,13 +6,13 @@
 /*   By: sbaba <sbaba@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/05 12:35:29 by sbaba             #+#    #+#             */
-/*   Updated: 2025/07/12 17:08:37 by sbaba            ###   ########.fr       */
+/*   Updated: 2025/07/15 17:20:14 by sbaba            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker.h"
 
-void	ft_error()
+void	ft_error(void)
 {
 	ft_printf("Error\n");
 	exit(-1);

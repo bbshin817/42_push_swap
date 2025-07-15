@@ -6,6 +6,7 @@ SRCS =	ft_bzero.c \
 		ft_itoa.c \
 		ft_split.c \
 		ft_strchr.c \
+		ft_strdup.c \
 		ft_strlcpy.c \
 		ft_strlen.c \
 		ft_substr.c \

@@ -6,7 +6,7 @@
 /*   By: sbaba <sbaba@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 15:25:08 by sbaba             #+#    #+#             */
-/*   Updated: 2025/07/12 18:42:23 by sbaba            ###   ########.fr       */
+/*   Updated: 2025/07/15 16:39:50 by sbaba            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ size_t	ft_strlcpy(char *dest, const char *src, size_t size);
 char	*ft_substr(char const *src, unsigned int start, size_t len);
 size_t	ft_strlen(const	char *str);
 char	*ft_strchr(const char *s, int c);
+char	*ft_strdup(const char *s);
 char	*ft_itoa(int n);
 char	**ft_split(const char *s, char c);
 char	*ft_utoa(unsigned int n);

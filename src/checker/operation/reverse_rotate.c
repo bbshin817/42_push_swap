@@ -6,7 +6,7 @@
 /*   By: sbaba <sbaba@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/12 16:23:09 by sbaba             #+#    #+#             */
-/*   Updated: 2025/07/12 19:18:09 by sbaba            ###   ########.fr       */
+/*   Updated: 2025/07/15 17:07:48 by sbaba            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,14 +33,12 @@ void	reverse_rotate(t_stack *stack)
 void	rra(t_stack *stack_a)
 {
 	reverse_rotate(stack_a);
-	ft_printf("rra\n");
 	return ;
 }
 
 void	rrb(t_stack *stack_b)
 {
 	reverse_rotate(stack_b);
-	ft_printf("rrb\n");
 	return ;
 }
 
@@ -48,6 +46,5 @@ void	rrr(t_stack *stack_a, t_stack *stack_b)
 {
 	reverse_rotate(stack_a);
 	reverse_rotate(stack_b);
-	ft_printf("rrr\n");
 	return ;
 }

@@ -6,7 +6,7 @@
 /*   By: sbaba <sbaba@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/16 16:41:51 by sbaba             #+#    #+#             */
-/*   Updated: 2025/07/05 21:54:00 by sbaba            ###   ########.fr       */
+/*   Updated: 2025/07/15 17:19:15 by sbaba            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ char	*do_read(int fd, char *cache)
 	if (!tmp)
 		return (NULL);
 	bytesize = 1;
+	if (!cache)
+		cache = ft_strdup("");
 	while (!ft_strchr(cache, '\n') && 0 != bytesize)
 	{
 		bytesize = read(fd, tmp, BUFFER_SIZE);
@@ -98,6 +100,11 @@ char	*get_next_line(int fd)
 	static char	*cache;
 	char		*line;
 
+	if (fd == -1)
+	{
+		free(cache);
+		return (NULL);
+	}
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
 	cache = do_read(fd, cache);
